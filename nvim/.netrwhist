@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/nunocasteleira'
+let g:netrw_dirhist_2='/Users/nunocasteleira/.denemo-2.0.10'
+let g:netrw_dirhist_3='/Users/nunocasteleira'
+let g:netrw_dirhist_4='/Users/nunocasteleira/.steinberg-auto-update-16DB4C8B-0BB6-4750-913C-AF954EBCDF15'
+let g:netrw_dirhist_5='/Users/nunocasteleira'
+let g:netrw_dirhist_6='/Users/nunocasteleira/.steinberg-auto-update-16DB4C8B-0BB6-4750-913C-AF954EBCDF15'
+let g:netrw_dirhist_7='/Users/nunocasteleira/Documents/Mestrado Tese/dossier/source'
+let g:netrw_dirhist_8='/Users/nunocasteleira/Desktop/ProgPerc'
+let g:netrw_dirhist_9='/Users/nunocasteleira/.config/nvim'
