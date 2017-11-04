@@ -1,0 +1,22 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.zsh_aliases: zsh_aliases
+    ~/.gitconfig: gitconfig
+    ~/.gitconfig.local: gitconfig.local
+    ~/.gitignore_global: gitignore_global
+    ~/.latexmkrc: latexmkrc
+    ~/.config/nvim/autoload/airline/themes/apprentice.vim: nvim/autoload/airline/themes/apprentice.vim
+    ~/.config/nvim/colors/apprentice.vim: nvim/colors/apprentice.vim
+    ~/.config/nvim/spell/pt.utf-8.add: nvim/spell/pt.utf-8.add
+    ~/.config/nvim/spell/pt.utf-8.add.spl: nvim/spell/pt.utf-8.add.spl
+    ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.zshrc: zshrc
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]

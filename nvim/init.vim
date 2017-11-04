@@ -91,7 +91,6 @@ let g:pandoc#spell#default_langs=["pt_pt"]
 """BASIC TOOLS
 "Navigating with guides
 inoremap <Space><Space> <Esc>/(<>)<Enter>"_c4l
-imap <M-BS> <C-W>
 
 "pandoc
 autocmd Filetype pandoc inoremap ;tit \begin{tabu}{@{}X@{}}\end{tabu}(<>)<Esc>3b4hi
@@ -152,7 +151,7 @@ let g:ale_linter_aliases = {'pandoc': ['markdown']}
 " ========
 
 " Open ~/.config/nvim/init.vim
-nnoremap <leader>r :e ~/.config/nvim/init.vim<CR>
+nnoremap <leader>r :e ~/.dotfiles/nvim/init.vim<CR>
 noremap <Leader>w :w<CR>
 " Select another file from the directory of the current one
 nnoremap <leader>F :execute 'edit' expand("%:p:h")<cr>
