@@ -8,6 +8,7 @@ alias rr="rm -rf"
 alias zshconfig="nvim ~/.zshrc"
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
 alias dossierdir="~/Documents/Mestrado\ Tese/dossier_latex"
+alias dot="~/.dotfiles"
 
 # Directory listing/traversal
 

@@ -1,5 +1,14 @@
-# dotfiles
+# Dotfiles
 My dotfiles
+
+# Installation
+After cloning this repo, inside the dotfiles folder, invoke
+```bash
+./install
+```
+Every symlink will be created in the proper place, as the install script is idempotent: it can safely be run multiple times.
+
+Dotfiles use [Dotbot][dotbot] for installation.
 
 # Licence
 
