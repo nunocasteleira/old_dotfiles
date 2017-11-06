@@ -17,6 +17,7 @@
     ~/.config/nvim/spell/pt.utf-8.add.spl: nvim/spell/pt.utf-8.add.spl
     ~/.config/nvim/init.vim: nvim/init.vim
     ~/.zshrc: zshrc
+    ~/.macos: macos
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

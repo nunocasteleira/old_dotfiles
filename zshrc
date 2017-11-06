@@ -14,7 +14,14 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 #POWERLEVEL9K_MODE='nerdfont-complete'
 #ZSH_THEME="spaceship"
 #ZSH_THEME="agnosterzak"
-#PROMPT_GEOMETRY_COLORIZE_SYMBOL="true"
+GEOMETRY_COLOR_GIT_DIRTY=9
+GEOMETRY_COLOR_GIT_BRANCH=6
+GEOMETRY_COLOR_EXIT_VALUE=9
+GEOMETRY_COLOR_DIR=242
+GEOMETRY_COLOR_ROOT="red"                   # root prompt symbol color
+GEOMETRY_SYMBOL_EXIT_VALUE="▲"
+PROMPT_GEOMETRY_GIT_CONFLICTS=true
+PROMPT_GEOMETRY_COLORIZE_SYMBOL="true"
 ZSH_THEME="geometry/geometry"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -59,7 +66,7 @@ ZSH_THEME="geometry/geometry"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-#plugins=(git)
+plugins=(zsh_async)
 
 source $ZSH/oh-my-zsh.sh
 

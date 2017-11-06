@@ -61,6 +61,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'robertbasic/vim-hugo-helper'
 Plug 'w0rp/ale'
 "Plug 'dylanaraps/wal.vim' "wal colorscheme
+Plug 'tpope/vim-surround'
 
 
 " All of your Plugins must be added before the following line
