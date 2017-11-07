@@ -18,6 +18,7 @@
     ~/.config/nvim/init.vim: nvim/init.vim
     ~/.zshrc: zshrc
     ~/.macos: macos
+    ~/.config/alacritty/alacritty.yml: alacritty.yml
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
