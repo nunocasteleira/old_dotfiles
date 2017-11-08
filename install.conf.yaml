@@ -19,6 +19,7 @@
     ~/.zshrc: zshrc
     ~/.macos: macos
     ~/.config/alacritty/alacritty.yml: alacritty.yml
+    ~/.fzf/plugin/zsh-interactive-cd.plugin.zsh: zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

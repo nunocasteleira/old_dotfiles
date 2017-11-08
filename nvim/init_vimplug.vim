@@ -1,57 +1,8 @@
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
-" Required:
-set runtimepath+=/Users/nunocasteleira/.local/share/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-if dein#load_state('/Users/nunocasteleira/.local/share/dein')
-  call dein#begin('/Users/nunocasteleira/.local/share/dein')
-
-  " Let dein manage dein
-  " Required:
-  call dein#add('/Users/nunocasteleira/.local/share/dein/repos/github.com/Shougo/dein.vim')
-
-  " Add or remove your plugins here:
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('Shougo/deoplete.nvim')
-  " ./install --all so the interactive script doesn't block
-" you can check the other command line options  in the install file
-call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 }) 
-call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
-call dein#add('ryanoasis/vim-devicons')
-call dein#add('lervag/vimtex')
-call dein#add('jiangmiao/auto-pairs')
-call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
-call dein#add('robertbasic/vim-hugo-helper')
-call dein#add('w0rp/ale')
-call dein#add('dylanaraps/wal.vim') "wal colorscheme
-call dein#add('tpope/vim-surround')
-call dein#add('airblade/vim-gitgutter')
-call dein#add('mileszs/ack.vim')
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-
-"End dein Scripts-------------------------
-
+" An example for a vimrc file.
+"
+" To use it, copy it to
+"     for Unix:     $HOME/.config/nvim/init.vim
+"     for Windows:  %LOCALAPPDATA%\nvim\init.vim
 
 set backup             " keep a backup file (restore to previous version)
 set undofile           " keep an undo file (undo changes after closing)
@@ -61,20 +12,86 @@ set number
 set relativenumber
 set backupdir=~/.local/share/nvim/backup "set backup path
 
+" Switch syntax highlighting on
+syntax on
+
 " Also switch on highlighting the last used search pattern.
 set hlsearch
 
-set encoding=utf8
-set guifont=FuraMono\ Nerd\ Font\ Mono:h11
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+call plug#begin('~/.vim/plugged')
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plug 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+"  Plug 'wincent/command-t', {
+"    \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
+"    \ }
+" git repos on your local machine (i.e. when working on your own plugin)
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+" Command-line Fuzzy Finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+" Lean & mean status/tabline for vim that's light as air.
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"neovim theme inspired by Oceanic Next for Sublime.
+"Plug 'mhartington/oceanic-next'
+Plug 'ryanoasis/vim-devicons'
+"Plug 'vim-pandoc/vim-pandoc'
+"Plug 'vim-pandoc/vim-pandoc-syntax'
+"Plug 'ntpeters/vim-better-whitespace' "highlight whitespaces. Toggle with :ToggleWhitespace, clean with :StripWhitespace
+"Plug 'altercation/vim-colors-solarized', { 'set': 'all' }
+Plug 'lervag/vimtex'
+Plug 'jiangmiao/auto-pairs'
+"Plug 'godlygeek/tabular'
+"Plug 'plasticboy/vim-markdown'
+" NERD tree will be loaded on the first invocation of NERDTreeToggle command
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'robertbasic/vim-hugo-helper'
+Plug 'w0rp/ale'
+"Plug 'dylanaraps/wal.vim' "wal colorscheme
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+Plug 'mileszs/ack.vim'
+
+
+" All of your Plugins must be added before the following line
+call plug#end()
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+      let g:deoplete#omni#input_patterns = {}
+  endif
+  let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+
+"set encoding=utf8
+"set guifont=FuraMono\ Nerd\ Font\ Mono:h11
 " adding to vim-airline's tabline
 let g:webdevicons_enable_airline_tabline = 1
 " adding to vim-airline's statusline
 let g:webdevicons_enable_airline_statusline = 1
 let g:airline_powerline_fonts = 1
+syntax enable
 colorscheme apprentice "wal "solarized "OceanicNext
 " set background=light
 let g:airline_theme='apprentice' "'solarized' "'oceanicnext'
 let g:airline#extensions#ale#enabled=1
+
+let g:pandoc#spell#default_langs=["pt_pt"]
 
 """BASIC TOOLS
 "Navigating with guides
