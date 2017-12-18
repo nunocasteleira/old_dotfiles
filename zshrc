@@ -99,6 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 . ~/.zsh_aliases
 
+# vim-like keybindings
+bindkey -v
+
 # completion
 zstyle ':completion:*:*:nvim:*' file-patterns '^*.(aux|bbl|bcf|blg|fdb*|fls|lof|log|lot|pdf|run*|sync*|toc):source-files' '*:all-files'
 

@@ -21,7 +21,7 @@ if dein#load_state('/Users/nunocasteleira/.local/share/dein')
 	call dein#add('Shougo/deoplete.nvim')
 	" ./install --all so the interactive script doesn't block
 	" you can check the other command line options  in the install file
-	call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 }) 
+	call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 	call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 	call dein#add('vim-airline/vim-airline')
 	call dein#add('vim-airline/vim-airline-themes')
@@ -30,7 +30,7 @@ if dein#load_state('/Users/nunocasteleira/.local/share/dein')
 	call dein#add('jiangmiao/auto-pairs')
 	call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
 	call dein#add('robertbasic/vim-hugo-helper')
-"	call dein#add('w0rp/ale')
+	"	call dein#add('w0rp/ale')
 	call dein#add('dylanaraps/wal.vim') "wal colorscheme
 	call dein#add('tpope/vim-surround')
 	call dein#add('airblade/vim-gitgutter')
@@ -64,6 +64,10 @@ set backupdir=~/.local/share/nvim/backup "set backup path
 
 " Also switch on highlighting the last used search pattern.
 set hlsearch
+set tw=70
+
+set list          " Display unprintable characters f12 - switches
+set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
 
 set encoding=utf8
 set guifont=FuraMono\ Nerd\ Font\ Mono:h11
@@ -96,14 +100,15 @@ let g:vimtex_view_method = 'skim'
 let g:formatdef_latexindent = '"latexindentwrapper"'
 let g:formatters_tex = ['latexindent']
 
-  if !exists('g:deoplete#omni#input_patterns')
-      let g:deoplete#omni#input_patterns = {}
-  endif
-  let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+	let g:deoplete#omni#input_patterns = {}
+endif
+let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 
-  " Using neosnippet#anonymous
-    inoremap <silent><expr> __ neosnippet#anonymous('_${1}${0}')
-    inoremap <silent><expr> ^^ neosnippet#anonymous('^${1}${0}')
+" Using neosnippet#anonymous
+inoremap <silent><expr> __ neosnippet#anonymous('_${1}${0}')
+inoremap <silent><expr> ^^ neosnippet#anonymous('^${1}${0}')
 
 "fzf config
 " This is the default extra key bindings
