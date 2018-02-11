@@ -15,10 +15,15 @@ if dein#load_state('/Users/nunocasteleira/.local/share/dein')
 	call dein#add('/Users/nunocasteleira/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
 	" Add or remove your plugins here:
+	call dein#add('Shougo/deoplete.nvim')
+	if !has('nvim')
+		call dein#add('roxma/nvim-yarp')
+		call dein#add('roxma/vim-hug-neovim-rpc')
+	endif
+	let g:deoplete#enable_at_startup = 1
 	call dein#add('Shougo/neosnippet.vim')
 	call dein#add('Shougo/neosnippet-snippets')
 	call dein#add('tpope/vim-fugitive')
-	call dein#add('Shougo/deoplete.nvim')
 	" ./install --all so the interactive script doesn't block
 	" you can check the other command line options  in the install file
 	call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
@@ -29,6 +34,7 @@ if dein#load_state('/Users/nunocasteleira/.local/share/dein')
 	call dein#add('lervag/vimtex')
 	call dein#add('jiangmiao/auto-pairs')
 	call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
+	call dein#add('Xuyuanp/nerdtree-git-plugin')
 	call dein#add('robertbasic/vim-hugo-helper')
 	"	call dein#add('w0rp/ale')
 	call dein#add('dylanaraps/wal.vim') "wal colorscheme
@@ -36,6 +42,8 @@ if dein#load_state('/Users/nunocasteleira/.local/share/dein')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('mileszs/ack.vim')
 	call dein#add('neomake/neomake')
+	call dein#add('junegunn/goyo.vim')
+	call dein#add('tibabit/vim-templates')
 
 	" Required:
 	call dein#end()
@@ -64,8 +72,9 @@ set backupdir=~/.local/share/nvim/backup "set backup path
 
 " Also switch on highlighting the last used search pattern.
 set hlsearch
-set tw=70
 
+set wrap	  " Sets soft wrap
+set linebreak	  " breaks at selected symbols SpaceTab!@*-+;:,./?
 set list          " Display unprintable characters f12 - switches
 set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
 
@@ -109,6 +118,19 @@ let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 " Using neosnippet#anonymous
 inoremap <silent><expr> __ neosnippet#anonymous('_${1}${0}')
 inoremap <silent><expr> ^^ neosnippet#anonymous('^${1}${0}')
+
+" I want to use my tab more smarter. If we are inside a completion menu jump
+" to the next item. Otherwise check if there is any snippet to expand, if yes
+" expand it. Also if inside a snippet and we need to jump tab jumps. If none
+" of the above matches we just call our usual 'tab'.
+
+" deoplete + neosnippet + autopairs changes
+let g:AutoPairsMapCR=0
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#enable_smart_case = 1
+imap <expr><TAB> pumvisible() ? "\<C-n>" : (neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>")
+imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+imap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>\<Plug>AutoPairsReturn"
 
 "fzf config
 " This is the default extra key bindings
@@ -156,6 +178,21 @@ highlight link ALEErrorSign Title
 
 " Tell ack.vim to use ag (the Silver Searcher) instead
 let g:ackprg = 'ag --vimgrep'
+
+
+" NERDTree
+let g:NERDTreeIndicatorMapCustom = {
+			\ "Modified"  : "✹",
+			\ "Staged"    : "✚",
+			\ "Untracked" : "✭",
+			\ "Renamed"   : "➜",
+			\ "Unmerged"  : "═",
+			\ "Deleted"   : "✖",
+			\ "Dirty"     : "✗",
+			\ "Clean"     : "✔︎",
+			\ 'Ignored'   : '☒',
+			\ "Unknown"   : "?"
+			\ }
 
 " ========
 " Key maps
