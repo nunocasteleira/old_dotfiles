@@ -3,6 +3,7 @@
 alias reload="source ~/.zshrc"
 alias _="sudo"
 alias g="git"
+alias gs="git status"
 alias rr="rm -rf"
 
 alias zshconfig="nvim ~/.zshrc"

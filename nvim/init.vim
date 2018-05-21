@@ -20,12 +20,11 @@ if dein#load_state('/Users/nunocasteleira/.local/share/dein')
 		call dein#add('roxma/nvim-yarp')
 		call dein#add('roxma/vim-hug-neovim-rpc')
 	endif
-	let g:deoplete#enable_at_startup = 1
 	call dein#add('Shougo/neosnippet.vim')
 	call dein#add('Shougo/neosnippet-snippets')
 	call dein#add('tpope/vim-fugitive')
-	" ./install --all so the interactive script doesn't block
-	" you can check the other command line options  in the install file
+"	" ./install --all so the interactive script doesn't block
+"	" you can check the other command line options  in the install file
 	call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 	call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 	call dein#add('vim-airline/vim-airline')
@@ -36,14 +35,15 @@ if dein#load_state('/Users/nunocasteleira/.local/share/dein')
 	call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
 	call dein#add('Xuyuanp/nerdtree-git-plugin')
 	call dein#add('robertbasic/vim-hugo-helper')
-	"	call dein#add('w0rp/ale')
-	call dein#add('dylanaraps/wal.vim') "wal colorscheme
+"	"	call dein#add('w0rp/ale')
+""	call dein#add('dylanaraps/wal.vim') "wal colorscheme
 	call dein#add('tpope/vim-surround')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('mileszs/ack.vim')
-	call dein#add('neomake/neomake')
+"	call dein#add('neomake/neomake')
 	call dein#add('junegunn/goyo.vim')
 	call dein#add('tibabit/vim-templates')
+	call dein#add('ledger/vim-ledger')
 
 	" Required:
 	call dein#end()
@@ -100,6 +100,9 @@ autocmd Filetype pandoc map <F5> :!make pdf<Enter>
 
 "tex
 autocmd Filetype tex inoremap ;tit \begin{tabu}{@{}X@{}}\end{tabu}(<>)<Esc>3b4hi
+autocmd Filetype tex inoremap ;p: \piece{}: (<>)<Esc>2ba
+autocmd Filetype tex inoremap ;pp \piece{} (<>)<Esc>2ba
+autocmd Filetype tex inoremap ;t \technique{} (<>)<Esc>2ba
 autocmd Filetype tex setlocal spell spelllang=pt
 
 let g:vimtex_compiler_progname = 'nvr'
@@ -109,7 +112,6 @@ let g:vimtex_view_method = 'skim'
 let g:formatdef_latexindent = '"latexindentwrapper"'
 let g:formatters_tex = ['latexindent']
 
-let g:deoplete#enable_at_startup = 1
 if !exists('g:deoplete#omni#input_patterns')
 	let g:deoplete#omni#input_patterns = {}
 endif
@@ -125,6 +127,7 @@ inoremap <silent><expr> ^^ neosnippet#anonymous('^${1}${0}')
 " of the above matches we just call our usual 'tab'.
 
 " deoplete + neosnippet + autopairs changes
+let g:deoplete#enable_at_startup = 1
 let g:AutoPairsMapCR=0
 let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#enable_smart_case = 1
@@ -205,6 +208,7 @@ noremap <Leader>w :w<CR>
 nnoremap <leader>F :execute 'edit' expand("%:p:h")<cr>
 nnoremap <leader>a :Ag<CR>
 nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>b :Buffers<CR>
 
 " Turn off linewise keys. Normally, the `j' and `k' keys move the cursor down one entire line. with
 " line wrapping on, this can cause the cursor to actually skip a few lines on the screen because

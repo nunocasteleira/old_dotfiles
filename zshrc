@@ -5,6 +5,8 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
 # (wal -r &)
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -19,10 +21,10 @@ GEOMETRY_COLOR_GIT_DIRTY=9
 GEOMETRY_COLOR_GIT_BRANCH=6
 GEOMETRY_COLOR_EXIT_VALUE=9
 GEOMETRY_COLOR_DIR=242
-GEOMETRY_COLOR_ROOT="red"                   # root prompt symbol color
+GEOMETRY_COLOR_ROOT="blue"                   # root prompt symbol color
 GEOMETRY_SYMBOL_EXIT_VALUE="▲"
 PROMPT_GEOMETRY_GIT_CONFLICTS=true
-PROMPT_GEOMETRY_COLORIZE_SYMBOL="true"
+# PROMPT_GEOMETRY_COLORIZE_SYMBOL="true"
 ZSH_THEME="geometry/geometry"
 
 # Uncomment the following line to use case-sensitive completion.
