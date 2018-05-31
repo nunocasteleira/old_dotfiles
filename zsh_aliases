@@ -8,7 +8,7 @@ alias rr="rm -rf"
 alias zshconfig="nvim ~/.zshrc"
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
 alias dossierdir="~/Documents/Mestrado\ Tese/dossier"
-alias doricodir="~/Documents/CRCB 2017/DoricoHandout"
+alias doricodir="~/Documents/CRCB\ 2017/DoricoHandout"
 alias dot="~/.dotfiles"
 
 # Directory listing/traversal
