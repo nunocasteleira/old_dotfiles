@@ -92,7 +92,7 @@ let g:airline#extensions#ale#enabled=1
 
 """BASIC TOOLS
 "Navigating with guides
-inoremap <Space><Space> <Esc>/(<>)<Enter>"_c4l
+" inoremap <Space><Space> <Esc>/(<>)<Enter>"_c4l
 
 "pandoc
 autocmd Filetype pandoc inoremap ;tit \begin{tabu}{@{}X@{}}\end{tabu}(<>)<Esc>3b4hi
