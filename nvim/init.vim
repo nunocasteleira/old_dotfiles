@@ -1,20 +1,21 @@
+lang pt_PT.UTF-8 " kinda obrigatório para o pbcopy funcionar
 "dein Scripts-----------------------------
 if &compatible
 	set nocompatible               " Be iMproved
 endif
 
 " Required:
-set runtimepath+=/Users/nunocasteleira/.local/share/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/nunocasteleira/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/nunocasteleira/.local/share/dein')
-	call dein#begin('/Users/nunocasteleira/.local/share/dein')
+if dein#load_state('/Users/nunocasteleira/.cache/dein')
+	call dein#begin('/Users/nunocasteleira/.cache/dein')
 
 	" Let dein manage dein
 	" Required:
-	call dein#add('/Users/nunocasteleira/.local/share/dein/repos/github.com/Shougo/dein.vim')
+	call dein#add('/Users/nunocasteleira/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-	" Add or remove your plugins here:
+	" Add or remove your plugins here like this:
 	call dein#add('Shougo/deoplete.nvim')
 	if !has('nvim')
 		call dein#add('roxma/nvim-yarp')
@@ -23,8 +24,8 @@ if dein#load_state('/Users/nunocasteleira/.local/share/dein')
 	call dein#add('Shougo/neosnippet.vim')
 	call dein#add('Shougo/neosnippet-snippets')
 	call dein#add('tpope/vim-fugitive')
-"	" ./install --all so the interactive script doesn't block
-"	" you can check the other command line options  in the install file
+	"	" ./install --all so the interactive script doesn't block
+	"	" you can check the other command line options  in the install file
 	call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 	call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 	call dein#add('vim-airline/vim-airline')
@@ -35,12 +36,12 @@ if dein#load_state('/Users/nunocasteleira/.local/share/dein')
 	call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
 	call dein#add('Xuyuanp/nerdtree-git-plugin')
 	call dein#add('robertbasic/vim-hugo-helper')
-"	"	call dein#add('w0rp/ale')
-""	call dein#add('dylanaraps/wal.vim') "wal colorscheme
+	call dein#add('w0rp/ale')
+	""	call dein#add('dylanaraps/wal.vim') "wal colorscheme
 	call dein#add('tpope/vim-surround')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('mileszs/ack.vim')
-"	call dein#add('neomake/neomake')
+	"	call dein#add('neomake/neomake')
 	call dein#add('junegunn/goyo.vim')
 	call dein#add('tibabit/vim-templates')
 	call dein#add('ledger/vim-ledger')
@@ -90,6 +91,8 @@ colorscheme apprentice "wal "solarized "OceanicNext
 let g:airline_theme='apprentice' "'solarized' "'oceanicnext'
 let g:airline#extensions#ale#enabled=1
 
+let g:vimtex_fold_enabled=1
+
 """BASIC TOOLS
 "Navigating with guides
 " inoremap <Space><Space> <Esc>/(<>)<Enter>"_c4l
@@ -112,6 +115,9 @@ let g:vimtex_view_method = 'skim'
 let g:formatdef_latexindent = '"latexindentwrapper"'
 let g:formatters_tex = ['latexindent']
 
+let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python'
+
 if !exists('g:deoplete#omni#input_patterns')
 	let g:deoplete#omni#input_patterns = {}
 endif
@@ -132,8 +138,11 @@ let g:AutoPairsMapCR=0
 let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#enable_smart_case = 1
 imap <expr><TAB> pumvisible() ? "\<C-n>" : (neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>")
-imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-imap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>\<Plug>AutoPairsReturn"
+"imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+inoremap <silent><expr><CR> neosnippet#expandable_or_jumpable() ? neosnippet#mappings#expand_or_jump_impl() : "\<CR>"
+imap <C-j> <Plug>(neosnippet_expand_or_jump)
+smap <C-j> <Plug>(neosnippet_expand_or_jump)
+xmap <C-j> <Plug>(neosnippet_expand_target)
 
 "fzf config
 " This is the default extra key bindings

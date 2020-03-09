@@ -130,6 +130,10 @@ fi
 
 source $HOME/.fzf/plugin/zsh-interactive-cd.plugin.zsh
 
+export LEDGER_FILE=~/Documents/Vida/Finance/private/main.txt
+
+export LC_ALL=pt_PT.UTF-8
+
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
