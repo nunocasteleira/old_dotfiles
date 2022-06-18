@@ -7,7 +7,14 @@ export ZSH=$HOME/.oh-my-zsh
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
-# (wal -r &)
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+PATH="/Users/nunocasteleira/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/nunocasteleira/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/nunocasteleira/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/nunocasteleira/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/nunocasteleira/perl5"; export PERL_MM_OPT;
+export LC_ALL=pt_PT.UTF-8
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -130,10 +137,6 @@ fi
 
 source $HOME/.fzf/plugin/zsh-interactive-cd.plugin.zsh
 
-export LEDGER_FILE=~/Documents/Vida/Finance/private/main.txt
-
-export LC_ALL=pt_PT.UTF-8
-
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
@@ -143,4 +146,18 @@ fe() {
   [[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
 }
 
+# heroku CLI config
+ if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+'export PATH="/usr/local/opt/node@14/bin:$PATH"' >> ~/.zshrc
+
+# Please auto-completion
+source <(plz --completion_script)
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"

@@ -10,7 +10,10 @@ alias nvimconfig="nvim ~/.config/nvim/init.vim"
 alias dossierdir="~/Documents/Mestrado\ Tese/dossier"
 alias tesedir="~/Documents/Mestrado\ Tese/tese"
 alias vida="~/Documents/Vida"
-alias dot="~/.dotfiles"
+# alias dot="~/.dotfiles"
+alias switch="~/Documents/Curso\ Switch"
+alias proj="~/Repositories/switch_2020_g1"
+alias repos="~/Repositories"
 
 # Directory listing/traversal
 

@@ -27,6 +27,8 @@
 	untrackedCache = true
 
 	editor = "nvim"
+	ignorecase = false
+	autocrlf = input
 [color]
 
 	# Use colors in Git commands that are capable of colored output when
@@ -55,7 +57,6 @@
 [commit]
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
 
 [diff]
 
